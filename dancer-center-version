@@ -1,0 +1,649 @@
+body {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  overflow-x: hidden;
+
+  #page {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  // ----------------------------
+  // ---------------------------
+  // ----------------------------
+
+  header {
+    @include navigation-bar;
+    width: 100vw;
+    min-height: 10vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+  }
+
+  // ---------------------------
+  // ----------------------------
+  #banner {
+    @include flex-center-column;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    z-index: -2;
+    border-bottom: 1px solid #000;
+    background-image: url(../img/yellow-line3.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    h1 {
+      position: absolute;
+      font-size: 8rem;
+      text-transform: uppercase;
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 10px;
+    }
+    .imgBgBanner {
+      width: 350px;
+      height: 350px;
+      background-color: yellow;
+      border-radius: 100%;
+      -webkit-box-shadow: 10px 10px 100px 40px yellow;
+      -moz-box-shadow: 10px 10px 100px 40px yellow;
+      box-shadow: 0px 0px 100px 40px yellow;
+
+      background-image: url(../img/d.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      z-index: 2;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background-color: rgb(255, 230, 0);
+        background-image: linear-gradient(45deg, #808080 25%, transparent 25%),
+          linear-gradient(-45deg, #808080 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #808080 75%),
+          linear-gradient(-45deg, transparent 75%, #808080 75%);
+
+        background-size: 2px 3px;
+        background-position: center;
+        /* background-position: 0 0, 5px 0, 5px -5px, 0px 5px; */
+        opacity: 0.1;
+      }
+    }
+  }
+  // ----------------------------
+  // ----------------------------
+  //                  TOP SECTION
+  // ----------------------------
+
+  #topSection {
+    width: 100vw;
+    height: auto;
+    @include flex-center-column;
+    background-color: white;
+
+    background-image: url(../img/pattern.svg);
+    background-size: cover;
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: all 3s ease-in-out;
+
+    .introTop {
+      width: 100%;
+      height: 120vh;
+      //   padding: 250px 0 200px 0;
+      background-color: rgb(255, 255, 255, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      border-bottom: 1px solid #000;
+
+      p {
+        width: 72%;
+        font-size: 4.2rem;
+        line-height: 56px;
+        color: #1fb67a;
+        letter-spacing: -10px;
+
+        word-spacing: 5px;
+        text-transform: uppercase;
+
+        span:nth-child(1) {
+          color: #000;
+
+          text-transform: uppercase;
+          letter-spacing: -2px;
+          font-size: 4.2rem;
+          position: relative;
+          transition: all 0.1s ease-in-out;
+        }
+        span:nth-child(1):hover {
+          color: yellow;
+          background-color: transparent;
+          cursor: url("../img/hand-cursor-sm2.png"), auto;
+        }
+        span:nth-child(1)::after {
+          content: "";
+          position: absolute;
+          top: -50%;
+          right: 0%;
+          transform: translateX(-20%, 0%);
+          width: 60px;
+          height: 60px;
+
+          background-image: url(../img/ojo-tri.jpg);
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          filter: hue-rotate(60deg);
+        }
+
+        /* ------ */
+        /* ------ */
+        span:nth-child(2) {
+          color: seagreen;
+          -webkit-text-fill-color: transparent;
+          -webkit-text-stroke-width: 1px;
+          font-style: italic;
+          font-size: 4.2rem;
+          letter-spacing: -1px;
+
+          transition: all 3s ease;
+          position: relative;
+        }
+
+        span:nth-child(2):hover {
+          -webkit-text-fill-color: rgb(255, 238, 0);
+          -webkit-text-stroke-width: 0px;
+          cursor: url("../img/hand-cursor-sm2.png"), auto;
+        }
+        span:nth-child(2)::after {
+          content: "";
+          position: absolute;
+          top: 110%;
+          left: 40%;
+          transform: translateX(-40% -110%);
+          width: 100px;
+          height: 100px;
+
+          background-color: transparent;
+          background-image: url(../img/bettlejuice.gif);
+          background-size: 80%;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+
+  // ------------------
+  //  introTopAnima
+  //
+  .introTopAnima {
+    width: 100%;
+    height: 110vh;
+    @include flex-center-column;
+
+    transition: all 3s ease-in-out;
+    position: relative;
+
+    .anima {
+      width: 400px;
+      height: 400px;
+      background-color: #ffffff;
+      border: 1px solid #1fb67a;
+      box-shadow: 15px -15px 0 0 rgba(31, 182, 122, 0.5);
+      position: relative;
+      cursor: url("../img/hand-cursor-sm2.png"), auto;
+    }
+    .circleAnima {
+      width: 100px;
+      height: 100px;
+      @include flex-center-column;
+      position: absolute;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      top: 70%;
+      left: 33%;
+      transform: translateX(-33% -70%);
+      color: #f96925;
+      cursor: url("../img/hand-cursor-sm2.png"), auto;
+      border-radius: 100%;
+      background-color: #fdc8af;
+
+      border: 1px solid #f96925;
+      animation: float 1s ease-in-out infinite;
+
+      @keyframes float {
+        0% {
+          //   box-shadow: 0 5px 10px 0px rgb(255, 255, 255);
+          transform: translateX(0px);
+        }
+        50% {
+          transform: translateX(-20px);
+        }
+        100% {
+          //   box-shadow: 0 5px 10px 0px rgb(255, 255, 255);
+          transform: translateX(0px);
+        }
+      }
+      //
+    }
+  }
+
+  // --------------------
+  .credits {
+    width: 100%;
+    height: 80vh;
+    background-color: rgba(31, 182, 122, 0.8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      text-transform: uppercase;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 5rem;
+      // -webkit-text-fill-color: transparent;
+      // -webkit-text-stroke-width: 1px;
+      color: black;
+    }
+    span {
+      margin: 0 10px;
+      border-bottom: 10px solid #000;
+
+      color: rgb(2, 2, 2);
+    }
+  }
+  // ----------------------------
+  // ----------------------------
+  //               MIDDLE SECTION
+  // ----------------------------
+
+  #middleSection {
+    width: 100vw;
+    height: auto;
+    @include flex-center-column;
+    background-color: #fdc8af;
+    /* background-color: #1fb67a; */
+    padding: 120px 0 200px 0;
+
+    h3 {
+      font-size: 1.5em;
+      margin-top: 0;
+      color: #050505;
+      font-style: italic;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    p {
+      line-height: 1em;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+      font-size: 2em;
+      text-transform: uppercase;
+      color: #202020;
+      margin: 10px 0;
+    }
+
+    #middleContainer {
+      width: 80%;
+      display: grid;
+      grid-template-columns: 30% auto;
+      border-bottom: 1px dotted #050505;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0;
+
+      // ---1
+      //
+      .boxImgTeam1 {
+        @include boxImgTeam;
+        background-image: url(../img/orwell.jpg);
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 100%;
+          background-color: #050505;
+          background-image: linear-gradient(45deg, #808080 25%, transparent 25%),
+            linear-gradient(-45deg, #808080 25%, transparent 25%),
+            linear-gradient(45deg, transparent 75%, #808080 75%),
+            linear-gradient(-45deg, transparent 75%, #808080 75%);
+
+          background-size: 4px 4px;
+          background-position: center;
+          /* background-position: 0 0, 5px 0, 5px -5px, 0px 5px; */
+          opacity: 0.4;
+        }
+      }
+      // ---2
+      //
+      .boxImgTeam2 {
+        @extend .boxImgTeam1;
+        background-image: url(../img/Bido.jpg);
+      }
+      // ---3
+      //
+      .boxImgTeam3 {
+        @extend .boxImgTeam1;
+        background-image: url(../img/cosmonauta.jpg);
+      }
+    }
+  }
+
+  // ----------------------------
+  // ----------------------------
+  //               FOOTER SECTION
+  // ----------------------------
+
+  #footer {
+    width: 100vw;
+    height: 5vh;
+    @include footer;
+  }
+}
+
+
+-------------------------------------
+JS
+-------------------------------------
+// ----------------------------------------------------
+//
+//
+//                           *
+//
+
+//                          BG
+// ----------------------------------------------------
+//
+//  Background changer
+function bgChanger() {
+  if (this.scrollY > this.innerHeight / 1) {
+    // this. correspond to the window, if the window is less than the innerHeight, divide par half of the screen.
+    //
+    document.body.classList.add("bg-active");
+  } else {
+    document.body.classList.remove("bg-active");
+  }
+}
+
+window.addEventListener("scroll", bgChanger);
+// ----------------------------------------------------
+//
+//                HEADER    *  NAVIGATION
+// ----------------------------------------------------
+//
+//
+const header = document.querySelector("#header");
+
+// nav.innerHTML= "<h3 class='logo'> <a href=""    </h3>";
+
+// ----------------------------------------------------
+//
+//
+//                           *
+//
+
+//                         BANNER
+// ----------------------------------------------------
+//
+
+const banner = document.querySelector("#banner");
+banner.innerHTML = "<h1>ROSETTA</h1>  <h2>Stay Inspired</h2>";
+
+//--new Div
+const imgBgBanner = document.createElement("div");
+imgBgBanner.classList.add("imgBgBanner");
+banner.appendChild(imgBgBanner);
+// ----------------------------------------------------
+//
+//
+//                           *
+//
+// ----------------------------------------------------
+//                          TOP
+// ----------------------------------------------------
+//
+const topSection = document.querySelector("#topSection");
+//
+const introTop = document.createElement("div");
+introTop.classList.add("introTop");
+// text
+introTop.innerHTML =
+  "<p> <span> Is it too much of a hassle looking for books ? </span> Say no more !! <span>For we have created ...</span>ROSETTA</p>";
+
+topSection.appendChild(introTop);
+
+// new div
+const introTopAnima = document.createElement("div");
+introTopAnima.classList.add("introTopAnima");
+topSection.appendChild(introTopAnima);
+// new div
+
+const anima = document.createElement("div");
+anima.classList.add("anima");
+introTopAnima.appendChild(anima);
+
+// new div
+const circleAnima = document.createElement("span");
+circleAnima.classList.add("circleAnima");
+circleAnima.innerHTML = "TRY IT";
+introTopAnima.appendChild(circleAnima);
+
+document.querySelector(".circleAnima").onclick = () => {
+  location.href = "search.html";
+};
+//
+//
+// -------------------------
+//CREDITS
+const credits = document.createElement("div");
+credits.classList.add("credits");
+topSection.appendChild(credits);
+
+// text about us
+credits.innerHTML = "<h1>CR<span>E</span>DITS</h1>";
+
+// ----------------------------------------------------
+//
+//
+//                           *
+//
+// ----------------------------------------------------
+//                         MIDDLE
+// ----------------------------------------------------
+//
+const middleSection = document.querySelector("#middleSection");
+
+// ----------------------------------------------------
+//
+//
+//                           *
+//
+// ----------------------------------------------------
+//                         FOOTER
+// ----------------------------------------------------
+//
+const footer = document.querySelector("#footer");
+const footerWrap = document.createElement("div");
+footerWrap.classList.add("footerWrapper");
+
+footer.appendChild(footerWrap);
+
+footerWrap.innerHTML = "<p>© 2020 NADIA MARIDUENA</p>";
+
+
+-------------------------------------------------------
+HTML
+-------------------------------------------------------
+
+<body>
+    <!-- ----------------------------------- -->
+    <!-- ----------------------------------- -->
+    <!-- ----------------------------------- -->
+    <header id="header">
+      <nav>
+        <h3 class="logo"><a href="index.html">ROS3TTA</a></h3>
+        <ul>
+          <li><a href="#">FAVORITES</a></li>
+          <li><a href="#middleSection">CREDITS</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- ----------------------------------- -->
+    <!-- ----------------------------------- -->
+    <!-- ----------------------------------------------------- -->
+    <div class="container">
+      <h1>Rosetta</h1>
+      <!-- SEARCH BOX  ------- -->
+      <div class="header-search">
+        <input
+          class="search-field"
+          type="text"
+          value=""
+          autofocus
+          placeholder="Author, book title"
+        />
+
+        <!-- start search button -->
+        <button type="button" disabled class="fetch-values">Search</button>
+      </div>
+      <h4>
+        <!-- Discover thousands of books. How about searching for "How to Grown
+        Majihuana or How to Kill Your Boyfriend"? -->
+
+        stimulate your research
+      </h4>
+    </div>
+    <!-- ------------------------------------- -->
+    <!-- ------------------------------------- -->
+    <!-- ------------------------------------- -->
+    <!-- ------------------------------------- -->
+    <!-- results displayed to the users -->
+    <!-- the result from the API -->
+    <div class="result">
+      <h4>STAY INSPIRED</h4>
+      <div class="container-books">
+        <!-- ------------------------------------- -->
+        <!-- ------------------------------------- -->
+        <!-- 1 -->
+        <div class="quote">
+          <h3>L’Officiel Art #332 April/May/June</h3>
+          <h6>7,90 €</h6>
+          <img class="img-box img1" src="./img/item1.jpg" alt="img One" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+            totam aspernatur inventore rem voluptatem quos. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Laudantium totam aspernatur
+            inventore rem voluptatem quos.
+          </p>
+          <h5>Read More</h5>
+        </div>
+        <!-- 2 -->
+        <div class="quote">
+          <h3>L’Officiel Art #332 April</h3>
+          <h6>7,90 €</h6>
+          <img class="img-box img2" src="./img/item4.jpg" alt="img One" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+            totam aspernatur inventore rem voluptatem quos. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Laudantium totam aspernatur
+            inventore rem voluptatem quos.
+          </p>
+          <h5>Read More</h5>
+        </div>
+        <!-- 3 -->
+        <div class="quote">
+          <h3>Andy Warhol Gregor Muir, Yilmaz Dziewior</h3>
+          <h6>33,90 €</h6>
+          <img class="img-box img3" src="./img/item3.jpg" alt="img One" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+            totam aspernatur inventore rem voluptatem quos. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Laudantium totam aspernatur
+            inventore rem voluptatem quos.
+          </p>
+          <h5>Read More</h5>
+        </div>
+        <!-- 4 -->
+        <div class="quote">
+          <h3>L’Officiel Art #332 April</h3>
+          <h6>7,90 €</h6>
+          <img class="img-box img4" src="./img/item2.jpg" alt="img One" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+            totam aspernatur inventore rem voluptatem quos. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Laudantium totam aspernatur
+            inventore rem voluptatem quos.
+          </p>
+          <h5>Read More</h5>
+        </div>
+        <!-- 5 -->
+        <div class="quote">
+          <h3>L’Officiel Art #332 April/May/June 2020</h3>
+          <h6>7,90 €</h6>
+          <img class="img-box img5" src="./img/item3.jpg" alt="img One" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+            totam aspernatur inventore rem voluptatem quos. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Laudantium totam aspernatur
+            inventore rem voluptatem quos.
+          </p>
+          <h5>Read More</h5>
+        </div>
+        <!-- 6 -->
+        <div class="quote">
+          <h3>L’Officiel Art #332 April</h3>
+          <h6>7,90 €</h6>
+          <img class="img-box img6" src="./img/item1.jpg" alt="img One" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+            totam aspernatur inventore rem voluptatem quos. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Laudantium totam aspernatur
+            inventore rem voluptatem quos.
+          </p>
+          <h5>Read More</h5>
+        </div>
+      </div>
+
+      <!----------------------------------------->
+      <div id="containePagination">
+        <div class="pagination">
+          <a href="#" class="page">1</a><a href="#" class="page">2</a
+          ><a href="#" class="page">3</a><span class="page active">4</span
+          ><a href="#" class="page">5</a><a href="#" class="page">6</a
+          ><a href="#" class="page">...</a>
+        </div>
+      </div>
+    </div>
+    <!-- ----------------------------------- -->
+    <!-- ----------------------------------- -->
+
+    <!-- <footer id="searchFooter"></footer> -->
+    <!-- ----------------------------------- -->
+    <!-- ----------------------------------- -->
+
+    <script type="module" src="./scripts/search-styles.js"></script>
+
+    <!-- ------------------------------------------------- -->
+  </body>
+
